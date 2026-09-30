@@ -5,7 +5,8 @@ const http = require('http');
 const WebSocket = require('ws');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
+const BACKEND = process.env.BACKEND_URL || 'https://risk-multiplayer-springboot-backend-production.up.railway.app';
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +18,7 @@ app.post('/api/login', async (req, res) => {
 	try 
 	{
 		const response = await axios.post(
-			'https://proyecto3risk-production.up.railway.app/api/login',
+			`${BACKEND}/api/login`,
 			{ username, password },
 			{ auth: { username, password } }
 		);
@@ -40,7 +41,7 @@ app.post('/api/register', async (req, res) => {
 	try 
 	{
 		const response = await axios.post(
-			'https://proyecto3risk-production.up.railway.app/api/users/register',
+			`${BACKEND}/api/users/register`,
 			{ firstName, lastName, email, username, password, avatarId }
 		);
 
@@ -61,7 +62,7 @@ app.put('/api/updateUser', async (req, res) => {
 	try 
 	{
 		const response = await axios.put(
-			`https://proyecto3risk-production.up.railway.app/api/users/update/${username}`,
+			`${BACKEND}/api/users/update/${username}`,
 			{ firstName, lastName, email, password: newPassword || currentPassword, avatarId },
 			{ auth: { username, password: currentPassword } }
 		);
@@ -79,7 +80,7 @@ app.put('/api/updateUser', async (req, res) => {
 // Endpoint d’avatars
 app.get('/api/avatars', async (req, res) => {
 	try {
-		const response = await axios.get('https://proyecto3risk-production.up.railway.app/api/avatars');
+		const response = await axios.get(`${BACKEND}/api/avatars`);
 		res.json(response.data);
 	} 
 	catch (error) 
@@ -93,7 +94,7 @@ app.get('/api/avatars', async (req, res) => {
 app.get('/api/countries', async (req, res) => {
 	try 
 	{
-		const response = await axios.get('https://proyecto3risk-production.up.railway.app/api/countries');
+		const response = await axios.get(`${BACKEND}/api/countries`);
 		res.json(response.data);
 	} 
 	catch (error) 
@@ -131,7 +132,7 @@ wss.on('connection', async (clientSocket, req) => {
 	{
 		// Fem login al Railway per obtenir cookie de sessió
 		const loginResponse = await axios.post(
-			'https://proyecto3risk-production.up.railway.app/api/login',
+			'${BACKEND}/api/login',
 			{ username, password },
 			{ auth: { username, password } }
 		);
@@ -141,7 +142,7 @@ wss.on('connection', async (clientSocket, req) => {
 
 		// Ens connectem al WS amb la cookie
 		const railwayWS = new WebSocket(
-			'wss://proyecto3risk-production.up.railway.app/ws/game',
+			BACKEND.replace('https://', 'wss://') + '/ws/game',
 			{ headers: { Cookie: cookie } }
 		);
 

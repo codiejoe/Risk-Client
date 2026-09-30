@@ -4,14 +4,15 @@ import AuthForm from '../components/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/Home.module.css';
 
+import {  WS_URL } from './config'; 
+
 // Funció per inicialitzar el WebSocket, només si no existeix
 function initWebSocket(user, password, setWebSocket, setSessionId, setPlayers, setPlayerColors) {
     if (!user || !user.id || !password) return null;
 
-    const ws = new WebSocket(
-        `ws://localhost:3001/ws/game?username=${user.username}` +
-        `&password=${password}&userId=${user.id}`
-    );
+const ws = new WebSocket(
+    `${WS_URL}/ws/game?username=${user.username}&password=${password}&userId=${user.id}`
+);
 
     const predefinedColors = defaultPalette;
 

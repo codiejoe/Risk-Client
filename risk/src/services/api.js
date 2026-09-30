@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { API_URL, WS_URL } from './config';   // adjust the relative path
 
 export const loginUser = async ({ username, password }) =>
 {
     try
     {
-        const response = await axios.post('http://localhost:3001/api/login',
+        const response = await axios.post(`${API_URL}/api/login`,
         { 
             username, 
             password 
@@ -21,7 +22,7 @@ export const registerUser = async ({firstName, lastName, email, username, passwo
 {
     try
     {
-        const response = await axios.post('http://localhost:3001/api/register', 
+        const response = await axios.post(`${API_URL}/api/register`, 
         {
             firstName,
             lastName,
@@ -42,7 +43,7 @@ export const updateUser = async ({firstName, lastName, email, username, currentP
 {
     try 
     {
-        const response = await axios.put('http://localhost:3001/api/updateUser', 
+        const response = await axios.put(`${API_URL}/api/updateUser`, 
         {
             firstName,
             lastName,
@@ -64,7 +65,7 @@ export const fetchAvatars = async () =>
 {
 	try
     {
-		const response = await axios.get('http://localhost:3001/api/avatars');
+		const response = await axios.get(`${API_URL}/api/avatars`);
 		return response.data;
 	}
     catch (error)
@@ -75,7 +76,7 @@ export const fetchAvatars = async () =>
 
 export const fetchCountries = async () => {
     try {
-        const response = await axios.get('http://localhost:3001/api/countries');
+        const response = await axios.get(`${API_URL}/api/countries`);
         
         return response.data.map((country) => ({
             id: country.id,
