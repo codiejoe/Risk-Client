@@ -1,0 +1,185 @@
+.pageContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.contentContainer {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authPageContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Secció de perfil */
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    text-align: center;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4CAF50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profileInfo {
+    width: 100%;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+
+.username {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stats span {
+    background: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Opcions del joc */
+.optionsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.optionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+}
+
+.optionCard {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%;
+    max-width: 300px;
+}
+
+.optionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.optionCard h3 {
+    margin: 1rem 0 0.5rem;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.optionCard p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.optionIcon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #4CAF50;
+}
+
+/* Autentiació */
+.authContainer {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.welcomeTitle {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.appName {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.welcomeSubtitle {
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+}
+
+/* Botó de logout */
+.logoutButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+    background-color: #e74c3c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

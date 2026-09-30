@@ -1,0 +1,25 @@
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Efectes dels territoris*/
+.glow {
+  filter: drop-shadow(0 0 8px lightgreen);
+}
+.selected {
+  filter: drop-shadow(0 0 8px gold);
+}
+.selected-origin {
+  filter: drop-shadow(0 0 8px blue);
+}
+.selected-target {
+  filter: drop-shadow(0 0 8px red);
+}
+/* fa que el número no sigui clicable ni seleccionable */
+.troopText {
+  pointer-events: none;
+  user-select: none;
+}
