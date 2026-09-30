@@ -132,7 +132,7 @@ wss.on('connection', async (clientSocket, req) => {
 	{
 		// Fem login al Railway per obtenir cookie de sessió
 		const loginResponse = await axios.post(
-			'${BACKEND}/api/login',
+			`${BACKEND}/api/login`,
 			{ username, password },
 			{ auth: { username, password } }
 		);
