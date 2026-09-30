@@ -4,7 +4,7 @@ import AuthForm from '../components/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/Home.module.css';
 
-import {  WS_URL } from './config'; 
+import {  WS_URL } from '../config';
 
 // Funció per inicialitzar el WebSocket, només si no existeix
 function initWebSocket(user, password, setWebSocket, setSessionId, setPlayers, setPlayerColors) {

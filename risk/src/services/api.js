@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL, WS_URL } from './config';   // adjust the relative path
+import { API_URL, WS_URL } from '../config';   // adjust the relative path
 
 export const loginUser = async ({ username, password }) =>
 {
